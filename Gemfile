@@ -1,0 +1,16 @@
+source 'https://rubygems.org/'
+
+gem 'pg'
+gem 'sinatra'
+gem 'heroku'
+gem 'oauth2'
+gem 'activerecord', :require=>'active_record'
+gem 'sinatra-activerecord', :require=>'sinatra/activerecord'
+gem 'dotenv'
+gem 'rake'
+gem 'omniauth'
+gem 'omniauth-vkontakte'
+gem 'sinatra-flash'
+gem 'sinatra-redirect-with-flash'
+
+ruby '2.3.4'
