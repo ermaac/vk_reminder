@@ -66,12 +66,12 @@ helpers do
     "#{first_name} #{last_name}"
   end
 
-  def create_new_user full_info
-    user = User.new
-    user.fullname = get_fullname full_info
-    user.photo_url = full_info['info']['image']
-    user.access_token = full_info['credentials']['token']
-    user
+  def create_new_user full_info, uid
+    User.find_or_create_by(uid: uid) do |user|
+      user.fullname = get_fullname full_info
+      user.photo_url = full_info['info']['image']
+      user.access_token = full_info['credentials']['token']
+    end
   end
 end
 
@@ -97,8 +97,8 @@ end
 
 get '/auth/vkontakte/callback' do
   uid = request.env['omniauth.auth']['uid']
-  new_user = create_new_user request.env['omniauth.auth']
-  User.find_or_create_by(uid: uid) { |user| user = new_user}
+  full_info = request.env['omniauth.auth']
+  create_new_user full_info, uid
   session[:uid] = uid
   redirect :friends, notice: LOGIN_MESSAGE
 end
