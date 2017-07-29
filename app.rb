@@ -14,7 +14,7 @@ FIRST_AUTHENTICATE_MESSAGE = 'Authenticate first (Click Get Started)'.freeze
 LOGOUT_MESSAGE = 'Successfully logged out'.freeze
 LOGIN_MESSAGE = 'Succesfully logged in'.freeze
 Dir.foreach('models') { |file| require_relative File.join('models', file) if file =~ /.+\.rb$/ }
-HIGHLIGHTING = {notice: 'alert-success', error: 'alert-danger'}
+HIGHLIGHTING = {notice: 'alert-success'.freeze, error: 'alert-danger'.freeze}
 
 use OmniAuth::Builder do
   provider :vkontakte, ENV['VK_CLIENT_ID'], ENV['VK_CLIENT_SECRET'], scope: 'offline'
