@@ -35,16 +35,9 @@
       </div>
     </div>
     <div class='container body-content'>
-      <% if flash[:error] %>
-        <p class="alert alert-warning"><%= flash[:error] %>
-      <% end %>
-      <% if flash[:notice] %>
-        <p class="alert alert-success"><%= flash[:notice] %>
-      <% end %>
+      <%= erb :partial %>
       <%= yield %>
     </div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
 <script>
   window.setTimeout(function() {
     $(".alert").fadeTo(4500, 0).slideUp(500, function(){

@@ -1,0 +1,5 @@
+<% if flash[@message_type] %>
+  <p class="alert <%= HIGHLIGHTING[@message_type] %>"><%= flash[@message_type] %>
+<% end %>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
