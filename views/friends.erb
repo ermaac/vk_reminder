@@ -1,0 +1,29 @@
+<div class='container'>
+  <div class='row'>
+      <img src='<%= @user.photo_url %>' alt='avatar' class='pull-right'>
+      <h2 class='pull-right'><%= @user.fullname %><h2>
+  </div>
+</div>
+<a class='btn btn-default pull-right' href='/logout'>Logout</a>
+<div class='clear-fix'></div>
+<h1 class='text-center'>Friends birthdays</h1><br />
+<% if @friends_info.any? %>
+  <div class='text-center col-md-6 col-md-offset-3'>
+    <table class='table table-hover condensed-table'>
+      <thead>
+        <th class='text-center'>Birth date</th>
+        <th class='text-center'>Friend name</th>
+      </thead>
+      <tbody>
+        <% @friends_info.each do|friend_info| %>
+          <tr>
+            <td><%= friend_info[:date] %></td>
+            <td><%= friend_info[:fullname] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <h3> No records found </h3>
+<% end %>
